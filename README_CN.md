@@ -67,6 +67,8 @@
 
 > 💡 **一键调用：** `/idea-discovery "你的研究方向"` 自动跑完整个工作流 1。
 
+> ⚙️ Pilot 实验预算（最大时长、超时、GPU 总预算）均可配置——见[自定义](#%EF%B8%8F-自定义)。
+
 ```
 1. /research-lit "discrete diffusion models"    ← 搜论文，整理全景
 2. /idea-creator "DLLMs post training"     ← 自动生成 8-12 个 idea，筛选排序
@@ -103,6 +105,8 @@
 - 🧠 **优先改叙事而非跑新实验** — 同样能解决问题时，选择成本更低的路径
 - 🪞 **不隐藏弱点** — 明确规则："不要隐藏弱点来骗高分"
 - 🔧 **先修后审** — 必须实现修复后再重新 review，不能只承诺修
+
+> ⚙️ MAX_ROUNDS、分数阈值、GPU 限制均可配置——见[自定义](#%EF%B8%8F-自定义)。
 
 📝 **博客：** [开源 | 睡觉 Claude 自动跑实验改文](http://xhslink.com/o/5cBMTDigNXz)
 

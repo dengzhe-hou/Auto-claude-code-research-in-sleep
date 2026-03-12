@@ -99,6 +99,8 @@ These skills compose into a full research lifecycle. The two workflows can be us
 
 > 💡 **One-command shortcut:** `/idea-discovery "your research direction"` runs this entire workflow automatically.
 
+> ⚙️ Pilot experiment budgets (max hours, timeout, GPU budget) are configurable — see [Customization](#%EF%B8%8F-customization).
+
 📝 **Blog post:** [Claude Code 两月 NeurIPS 指北](http://xhslink.com/o/7IvAJQ41IBA)
 
 ### Workflow 2: Auto Research Loop 🔁 (sleep & wake up to results)
@@ -141,6 +143,8 @@ These skills compose into a full research lifecycle. The two workflows can be us
 - 🧠 **Prefer reframing over new experiments** — when both can address a weakness, chooses the cheaper path
 - 🪞 **No hiding weaknesses** — explicit rule: "Do NOT hide weaknesses to game a positive score"
 - 🔧 **Fix before re-review** — must actually implement fixes before resubmitting; no empty promises
+
+> ⚙️ MAX_ROUNDS, score threshold, and GPU limits are configurable — see [Customization](#%EF%B8%8F-customization).
 
 📝 **Blog post:** [开源 | 睡觉 Claude 自动跑实验改文](http://xhslink.com/o/5cBMTDigNXz)
 
