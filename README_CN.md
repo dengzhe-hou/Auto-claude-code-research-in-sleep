@@ -332,7 +332,8 @@ cp -r skills/research-lit ~/.claude/skills/
 }
 ```
 
-### 🖥️ GPU 服务器配置（自动跑实验用）
+<details>
+<summary><h3>🖥️ GPU 服务器配置（自动跑实验用）</h3></summary>
 
 当 GPT-5.4 审稿说"需要补一个消融实验"或"加一个 baseline 对比"时，Claude Code 会自动写实验脚本并部署到你的 GPU 服务器。为此，Claude Code 需要知道你的服务器环境。
 
@@ -352,6 +353,8 @@ cp -r skills/research-lit ~/.claude/skills/
 Claude Code 读到这些就知道怎么 SSH、激活环境、启动实验。GPT-5.4（审稿人）只决定**做什么实验**——Claude Code 根据你的 `CLAUDE.md` 搞定**怎么跑**。
 
 **没有 GPU 服务器？** Review 和改写功能不受影响，只有需要跑实验的修复会被跳过（标记为"需人工跟进"）。
+
+</details>
 
 ### 📚 Zotero 集成（可选）
 
@@ -421,7 +424,8 @@ cp -r obsidian-skills/.claude /path/to/your/vault/
 | **仅推送** | 关键事件发 webhook 通知，手机收推送，不能回复 | 飞书机器人 webhook URL |
 | **双向交互** | 全双工：在飞书里审批/拒绝 idea、回复 checkpoint | [feishu-claude-code](https://github.com/joewongjc/feishu-claude-code) 运行中 |
 
-#### 仅推送模式（5 分钟配好）
+<details>
+<summary><b>仅推送模式（5 分钟配好）</b></summary>
 
 群通知，彩色富文本卡片——实验跑完、review 出分、流水线结束，手机收推送就行，不需要回复。
 
@@ -468,7 +472,10 @@ curl -s -X POST "YOUR_WEBHOOK_URL" \
 | 出错 | 🔴 红色 | 错误信息、建议修复方案 |
 | 流水线结束 | 🟣 紫色 | 分数进展表、最终交付物 |
 
-#### 双向交互模式（15 分钟）
+</details>
+
+<details>
+<summary><b>双向交互模式（15 分钟）</b></summary>
 
 推送模式的全部功能 **加上** 通过飞书私聊与 Claude Code 双向对话。审批/拒绝 idea、回复 checkpoint、给自定义指令——全在手机上完成。
 
@@ -586,6 +593,8 @@ EOF
 | `/monitor-experiment` | 结果已收集 | 结果对比表 | 结果对比表 |
 | `/idea-discovery` | 阶段切换、最终报告 | 各阶段摘要 | + 审批/拒绝 |
 | `/research-pipeline` | 阶段切换、流水线结束 | 阶段摘要 | + 审批/拒绝 |
+
+</details>
 
 **不用飞书？** 没关系——没有 `~/.claude/feishu.json` 文件时，所有 skill 行为完全不变。零开销，零副作用。
 

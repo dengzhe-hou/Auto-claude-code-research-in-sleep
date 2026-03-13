@@ -416,7 +416,8 @@ To run the auto-review loop without clicking permission prompts, add to `.claude
 }
 ```
 
-### 🖥️ GPU Server Setup (For Auto-Experiments)
+<details>
+<summary><h3>🖥️ GPU Server Setup (For Auto-Experiments)</h3></summary>
 
 When GPT-5.4 says "run an ablation study" or "add a baseline comparison", Claude Code automatically writes the experiment script and deploys it to your GPU server. For this to work, Claude Code needs to know your server environment.
 
@@ -436,6 +437,8 @@ Add your server info to your project's `CLAUDE.md`:
 Claude Code reads this and knows how to SSH in, activate the environment, and launch experiments. GPT-5.4 (the reviewer) only decides **what** experiments to run — Claude Code figures out **how** based on your `CLAUDE.md`.
 
 **No server?** The review and rewriting skills still work without GPU access. Only experiment-related fixes will be skipped (flagged for manual follow-up).
+
+</details>
 
 ### 📚 Zotero Integration (Optional)
 
@@ -505,7 +508,8 @@ Get mobile notifications when experiments finish, reviews score, or checkpoints 
 | **Push only** | Webhook notifications at key events. Mobile push, no reply | Feishu bot webhook URL |
 | **Interactive** | Full bidirectional. Approve/reject ideas, reply to checkpoints from Feishu | [feishu-claude-code](https://github.com/joewongjc/feishu-claude-code) running |
 
-#### Push Only Setup (5 min)
+<details>
+<summary><b>Push Only Setup (5 min)</b></summary>
 
 Group notifications with rich cards — experiment done, review scored, pipeline complete. Mobile push, no reply needed.
 
@@ -552,7 +556,10 @@ You should see a blue card in your group. Skills will now automatically send ric
 | Error | 🔴 Red | Error message, suggested fix |
 | Pipeline done | 🟣 Purple | Score progression, deliverables |
 
-#### Interactive Setup (15 min)
+</details>
+
+<details>
+<summary><b>Interactive Setup (15 min)</b></summary>
 
 Everything Push mode does, **plus** bidirectional private chat with Claude Code via Feishu. Approve/reject ideas, reply to checkpoints, give custom instructions — all from your phone.
 
@@ -670,6 +677,8 @@ Now skills will:
 | `/monitor-experiment` | Results collected | Results table | Results table |
 | `/idea-discovery` | Phase transitions, final report | Summary at each phase | + approve/reject at checkpoints |
 | `/research-pipeline` | Stage transitions, pipeline done | Stage summary | + approve/reject |
+
+</details>
 
 **Not using Feishu?** No problem — without `~/.claude/feishu.json`, all skills behave exactly as before. Zero overhead, zero side effects.
 
