@@ -156,6 +156,41 @@ claude
 
 📝 **博客：** [开源 | 睡觉 Claude 自动跑实验改文](http://xhslink.com/o/5cBMTDigNXz)
 
+### 工作流 3：论文写作流水线 📝
+
+> "把我的研究报告变成可投稿的 PDF。"
+
+**涉及 Skills：** `paper-plan` + `paper-figure` + `paper-write` + `paper-compile`
+
+**输入：** 一份 `NARRATIVE_REPORT.md`，描述研究内容：声明、实验、结果、图表。叙事越详细（尤其是图表描述和定量结果），输出越好。
+
+**输出：** 一个可投稿的 `paper/` 目录，含 LaTeX 源码、干净的 `.bib`（仅含实际引用）、编译好的 PDF。
+
+```
+NARRATIVE_REPORT.md ──► /paper-plan ──► /paper-figure ──► /paper-write ──► /paper-compile
+    (研究叙事)          (大纲+矩阵)     (图表+LaTeX)      (逐节LaTeX)      (编译PDF)
+```
+
+```
+典型流程：
+1. 写 NARRATIVE_REPORT.md（来自工作流 2 的结果）
+2. /paper-plan — 生成 claims-evidence 矩阵 + 分节计划
+3. /paper-figure — 生成对比表、训练曲线等图表
+4. /paper-write — 逐 section 生成 LaTeX（含 bib 清理、de-AI 打磨）
+5. /paper-compile — 编译 PDF、修复错误、页数验证
+```
+
+**核心特性：**
+- 📐 **Claims-Evidence 矩阵** — 每个声明映射到证据，每个实验支撑一个声明
+- 📊 **自动图表生成** — 从 JSON 数据生成折线图、柱状图、对比表
+- 🧹 **Bib 自动清理** — 过滤未引用条目（实测 948→215 行）
+- 📄 **灵活节数** — 5-8 节按论文类型选择（理论论文常需 7 节）
+- 🔍 **GPT-5.4 审稿** — 每步可选外部 LLM 审查
+- ✂️ **De-AI 打磨** — 去除 AI 写作痕迹（delve、pivotal、landscape…）
+- 🎯 **精确页数验证** — 基于 `pdftotext` 定位 Conclusion 结束位置
+
+**端到端实测：** 从一份 NARRATIVE_REPORT.md 生成了一篇 9 页 ICLR 2026 理论论文（7 节、29 条引用、4 张图、2 个对比表）——零编译错误、零 undefined reference。
+
 ---
 
 ## 🧰 全部 Skills

@@ -194,6 +194,61 @@ These skills compose into a full research lifecycle. The two workflows can be us
 
 📝 **Blog post:** [开源 | 睡觉 Claude 自动跑实验改文](http://xhslink.com/o/5cBMTDigNXz)
 
+### Workflow 3: Paper Writing Pipeline 📝
+
+> **"Turn my research narrative into a submission-ready PDF."**
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│                   Paper Writing Pipeline                      │
+│                                                               │
+│   /paper-plan      /paper-figure     /paper-write             │
+│   (outline)        (plots & tables)  (LaTeX draft)            │
+│        │                │                 │                   │
+│        ▼                ▼                 ▼                   │
+│   ┌──────────┐    ┌──────────┐     ┌──────────┐              │
+│   │ Claims-  │───▶│ Generate │────▶│ Section  │──┐           │
+│   │ Evidence │    │ figures, │     │ by       │  │           │
+│   │ Matrix + │    │ tables,  │     │ section  │  │           │
+│   │ Section  │    │ LaTeX    │     │ LaTeX    │  │           │
+│   │ Plan     │    │ includes │     │ draft    │  │           │
+│   └──────────┘    └──────────┘     └──────────┘  │           │
+│        │                                          │           │
+│        │         /paper-compile                   │           │
+│        │         (build PDF)                      │           │
+│        │              │                           │           │
+│        ▼              ▼                           ▼           │
+│   ┌──────────────────────────────────────────────────┐       │
+│   │ NARRATIVE_REPORT.md ──► PAPER_PLAN.md ──► paper/ │       │
+│   │    (input)             (outline)      (LaTeX+PDF)│       │
+│   └──────────────────────────────────────────────────┘       │
+│                                                               │
+│   Typical flow:                                               │
+│   1. Write NARRATIVE_REPORT.md (from Workflow 2 results)      │
+│   2. /paper-plan (claims-evidence matrix + section plan)      │
+│   3. /paper-figure (comparison tables, training curves, etc.) │
+│   4. /paper-write (section-by-section LaTeX generation)       │
+│   5. /paper-compile (build PDF, fix errors, page check)       │
+└─────────────────────────────────────────────────────────────┘
+```
+
+**Skills involved:** `paper-plan` + `paper-figure` + `paper-write` + `paper-compile`
+
+**Input:** A `NARRATIVE_REPORT.md` describing the research: claims, experiments, results, figures. The more detailed the narrative (especially figure descriptions and quantitative results), the better the output.
+
+**Output:** A submission-ready `paper/` directory with LaTeX source, clean `.bib` (only cited entries), and compiled PDF.
+
+**Key features:**
+- 📐 **Claims-Evidence Matrix** — every claim maps to evidence, every experiment supports a claim
+- 📊 **Auto figure generation** — line plots, bar charts, comparison tables from JSON data
+- 🧹 **Clean bib** — automated filtering removes uncited entries (948→215 lines in testing)
+- 📄 **Flexible sections** — 5-8 sections depending on paper type (theory papers often need 7)
+- 🔍 **GPT-5.4 review** — each step optionally reviewed by external LLM
+- ✂️ **De-AI polish** — removes AI writing patterns (delve, pivotal, landscape...)
+- 🎯 **Page verification** — `pdftotext`-based precise check that main body fits page limit
+
+**Tested end-to-end:** Generated a 9-page ICLR 2026 theory paper (7 sections, 29 citations, 4 figures, 2 comparison tables) from a single NARRATIVE_REPORT.md — zero compilation errors, zero undefined references.
+
 ---
 
 ## 🧰 All Skills
