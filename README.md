@@ -970,6 +970,20 @@ This project builds on and integrates with many excellent open-source projects:
 **Community**
 - [awesome-agent-skills](https://github.com/VoltAgent/awesome-agent-skills) — Curated list of Claude Code skills (featured)
 
+## Citation
+
+If you use ARIS in your research, please cite:
+
+```bibtex
+@misc{yang2026aris,
+    author       = {Yang, Ruofeng and Li, Yongcan and Li, Shuai},
+    title        = {ARIS: Fully Autonomous Research via Adversarial Multi-Agent Collaboration},
+    year         = {2026},
+    organization = {GitHub},
+    url          = {https://github.com/wanshuiyin/Auto-claude-code-research-in-sleep},
+}
+```
+
 ## License
 
 MIT
